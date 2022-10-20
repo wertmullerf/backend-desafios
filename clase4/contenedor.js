@@ -5,7 +5,7 @@ class Contenedor {
     }
     getAll = async () => {
         try {
-            const archivo = await fs.promises.readFile(this.filePath);
+            const archivo = await fs.promises.readFile(this.filePath, "utf-8");
             const productos = JSON.parse(archivo);
             return productos;
         } catch (e) {
@@ -29,13 +29,19 @@ class Contenedor {
     };
     getById = async (id) => {
         try {
-            const dataRecuperada = await this.getAll();
-            const dataNueva = dataRecuperada.filter((data) => data.id === id);
-            if (dataNueva !== id) {
-                console.log("No existe producto con ese id");
-            } else {
-                console.log(dataNueva);
-            }
+            const productos = await this.getAll();
+            const productoEncontrado = productos.find(
+                (producto) => producto.id == id
+            );
+
+            if (!productoEncontrado)
+                return console.log("El id del pruducto no existe");
+
+            return console.log(
+                `Producto encontrado con el id ${id}: ${JSON.stringify(
+                    productoEncontrado
+                )}`
+            );
         } catch (e) {
             console.log(e);
         }
@@ -69,8 +75,6 @@ class Contenedor {
     };
 }
 const contenedor = new Contenedor();
-contenedor.save({
-    title: "Producto 4",
-    price: 150,
-    img: "ruta",
-});
+
+contenedor.getAll().then((e) => console.log(e));
+contenedor.getById(7).then();

@@ -1,1 +1,10 @@
-[]
+[
+    { "title": "Producto 4", "price": 150, "img": "ruta", "id": 1 },
+    { "title": "Producto 4", "price": 150, "img": "ruta", "id": 2 },
+    { "title": "Producto 4", "price": 150, "img": "ruta", "id": 3 },
+    { "title": "Producto 4", "price": 150, "img": "ruta", "id": 4 },
+    { "title": "Producto 4", "price": 150, "img": "ruta", "id": 5 },
+    { "title": "Producto 4", "price": 150, "img": "ruta", "id": 6 },
+    { "title": "Producto 4", "price": 150, "img": "ruta", "id": 7 },
+    { "title": "Producto 4", "price": 150, "img": "ruta", "id": 8 }
+]
