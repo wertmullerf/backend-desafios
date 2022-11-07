@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3000;
 app.use("/api/products", routerProducts);
 // app.use(express.urlencoded({ extended: true }));
 // app.use(express.json());
@@ -30,7 +30,7 @@ app.post("/form", (req, res) => {
     const { body } = req;
     console.log(body);
     contenedor.save(body);
-    res.send("Thank you for sharing your data!");
+    res.send("Thank you for sharing your data1");
 });
 
 routerProducts.get("", async (req, res) => {
@@ -79,4 +79,18 @@ routerProducts.put("/:id", async (req, res) => {
     } catch (error) {
         res.json({ error: true, msj: "error" });
     }
+    /*
+    // otra opcion
+    const newData = req.body;
+    const { id } = req.params;
+    const products = await contenedor.getAll();
+    const productFound = products.find(
+        (product) => product.id === parseInt(id)
+    );
+    if (!productFound) {
+        res.status(404).send("Product not found");
+    }
+    products.map((e) => (e.id === parseInt(id) ? { ...e, ...newData } : e));
+    res.json({ success: true });
+    */
 });

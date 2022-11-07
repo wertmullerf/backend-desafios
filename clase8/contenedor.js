@@ -84,8 +84,6 @@ class Contenedor {
                     JSON.stringify(productos, null, 2)
                 );
                 return item;
-            } else {
-                return { error: "Product not found" };
             }
         } catch (error) {
             throw new Error(error);

@@ -1,32 +1,26 @@
 [
-  {
-    "title": "Tijera",
-    "price": 25,
-    "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png",
-    "id": 1
-  },
-  {
-    "title": "Calculadora",
-    "price": 234.56,
-    "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png",
-    "id": 2
-  },
-  {
-    "product": "iPhone 14",
-    "price": "1300",
-    "thumbnail": "https://cbafederal.net/wp-content/uploads/2022/09/Apple-iPhone-14-iPhone-14-Plus-2up-blue-220907-geo_inline.jpg.large_.jpg",
-    "id": 3
-  },
-  {
-    "title": "iPhone X 128GB",
-    "price": "500",
-    "thumbnail": "https://www.apple.com/newsroom/images/product/iphone/standard/iphonex_front_back_glass_big.jpg.large.jpg",
-    "id": 4
-  },
-  {
-    "title": "Iphone 7",
-    "price": "300",
-    "thumbnail": "https://mobidoc.com.ar/wp-content/uploads/2021/07/iPhone-8-Blanco.jpeg",
-    "id": 5
-  }
+    {
+        "price": "30",
+        "thumbnail": "#",
+        "id": 3,
+        "title": "Santino"
+    },
+    {
+        "title": "iPhone X 128GB",
+        "price": "500",
+        "thumbnail": "https://www.apple.com/newsroom/images/product/iphone/standard/iphonex_front_back_glass_big.jpg.large.jpg",
+        "id": 4
+    },
+    {
+        "title": "Iphone 7",
+        "price": "300",
+        "thumbnail": "https://mobidoc.com.ar/wp-content/uploads/2021/07/iPhone-8-Blanco.jpeg",
+        "id": 5
+    },
+    {
+        "title": "iPhone 8 64Gb",
+        "price": "400",
+        "thumbnail": "https://todoapplecaba.com.ar/wp-content/uploads/2021/05/refurb-iphone8plus-silver.jpg",
+        "id": 6
+    }
 ]
