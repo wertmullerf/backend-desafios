@@ -1,0 +1,2 @@
+Luego de haber probado los tres motores de plantillas: Handlebars, EJS y PUG JS, llegue a la conclusion que handlebars se adapta mucho mas a mi para desarrollar, ya que siento la sintaxis mucho mas limpia y comoda. 
+EJS es la que menos me gusto porque siento que es muy sucia para escribir y ademas lo veo muy complicado de mantener.
