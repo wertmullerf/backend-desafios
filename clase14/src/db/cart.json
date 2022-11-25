@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "timestamp": "11/24/2022, 10:02:20 PM",
+        "products": [
+            {
+                "title": "Iphone 14",
+                "price": "1000",
+                "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout",
+                "stock": 5,
+                "thumbnail": "https://cbafederal.net/wp-content/uploads/2022/09/Apple-iPhone-14-iPhone-14-Plus-2up-blue-220907-geo_inline.jpg.large_.jpg",
+                "timestamp": "11/24/2022, 2:54:08 PM",
+                "id": 4
+            },
+            {
+                "title": "Iphone 14",
+                "price": "1000",
+                "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout",
+                "stock": 5,
+                "thumbnail": "https://cbafedera l.net/wp-content/uploads/2022/09/Apple-iPhone-14-iPhone-14-Plus-2up-blue-220907-geo_inline.jpg.large_.jpg",
+                "timestamp": "11/24/2022, 2:54:07 PM",
+                "id": 2
+            },
+            {
+                "title": "Iphone 14",
+                "price": "1000",
+                "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout",
+                "stock": 5,
+                "thumbnail": "https://cbafederal.net/wp-content/uploads/2022/09/Apple-iPhone-14-iPhone-14-Plus-2up-blue-220907-geo_inline.jpg.large_.jpg",
+                "timestamp": "11/24/2022, 2:54:08 PM",
+                "id": 3
+            },
+            {
+                "title": "Iphone 14",
+                "price": "1000",
+                "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout",
+                "stock": 5,
+                "thumbnail": "https://cbafederal.net/wp-content/uploads/2022/09/Apple-iPhone-14-iPhone-14-Plus-2up-blue-220907-geo_inline.jpg.large_.jpg",
+                "timestamp": "11/24/2022, 2:54:07 PM",
+                "id": 1
+            }
+        ]
+    }
+]

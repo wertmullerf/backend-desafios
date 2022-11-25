@@ -1,0 +1,65 @@
+[
+    {
+        "title": "Iphone 14",
+        "price": "1000",
+        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout",
+        "stock": 5,
+        "thumbnail": "https://cbafederal.net/wp-content/uploads/2022/09/Apple-iPhone-14-iPhone-14-Plus-2up-blue-220907-geo_inline.jpg.large_.jpg",
+        "timestamp": "11/24/2022, 2:54:07 PM",
+        "id": 1
+    },
+    {
+        "title": "Iphone 14",
+        "price": "1000",
+        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout",
+        "stock": 5,
+        "thumbnail": "https://cbafederal.net/wp-content/uploads/2022/09/Apple-iPhone-14-iPhone-14-Plus-2up-blue-220907-geo_inline.jpg.large_.jpg",
+        "timestamp": "11/24/2022, 2:54:07 PM",
+        "id": 2
+    },
+    {
+        "title": "Iphone 14",
+        "price": "1000",
+        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout",
+        "stock": 5,
+        "thumbnail": "https://cbafederal.net/wp-content/uploads/2022/09/Apple-iPhone-14-iPhone-14-Plus-2up-blue-220907-geo_inline.jpg.large_.jpg",
+        "timestamp": "11/24/2022, 2:54:08 PM",
+        "id": 3
+    },
+    {
+        "title": "Iphone 14",
+        "price": "1000",
+        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout",
+        "stock": 5,
+        "thumbnail": "https://cbafederal.net/wp-content/uploads/2022/09/Apple-iPhone-14-iPhone-14-Plus-2up-blue-220907-geo_inline.jpg.large_.jpg",
+        "timestamp": "11/24/2022, 2:54:08 PM",
+        "id": 4
+    },
+    {
+        "title": "Iphone 14",
+        "price": "1000",
+        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout",
+        "stock": 5,
+        "thumbnail": "https://cbafederal.net/wp-content/uploads/2022/09/Apple-iPhone-14-iPhone-14-Plus-2up-blue-220907-geo_inline.jpg.large_.jpg",
+        "timestamp": "11/24/2022, 2:54:09 PM",
+        "id": 5
+    },
+    {
+        "title": "Iphone 14",
+        "price": "1000",
+        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout",
+        "stock": 5,
+        "thumbnail": "https://cbafederal.net/wp-content/uploads/2022/09/Apple-iPhone-14-iPhone-14-Plus-2up-blue-220907-geo_inline.jpg.large_.jpg",
+        "timestamp": "11/24/2022, 2:54:09 PM",
+        "id": 6
+    },
+    {
+        "title": "Iphone 12",
+        "price": "1000",
+        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout",
+        "stock": 35,
+        "thumbnail": "https://cbafederal.net/wp-content/uploads/2022/09/Apple-iPhone-14-iPhone-14-Plus-2up-blue-220907-geo_inline.jpg.large_.jpg",
+        "timestamp": "11/24/2022, 2:55:36 PM",
+        "id": 7
+    }
+]

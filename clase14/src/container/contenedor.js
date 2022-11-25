@@ -1,0 +1,127 @@
+const fs = require("fs");
+class Contenedor {
+    constructor(fileName) {
+        this.filePath = `./src/db/${fileName}.json`;
+    }
+    getAll = async () => {
+        try {
+            const archivo = await fs.promises.readFile(this.filePath, "utf-8");
+            const productos = JSON.parse(archivo);
+            return productos;
+        } catch (e) {
+            console.log(e);
+        }
+    };
+    save = async (producto) => {
+        try {
+            const productos = await this.getAll();
+            const id =
+                productos.length === 0
+                    ? 1
+                    : productos[productos.length - 1].id + 1;
+            producto.id = id;
+            productos.push(producto);
+            await fs.promises.writeFile(
+                this.filePath,
+                JSON.stringify(productos, null)
+            );
+            return producto.id;
+        } catch (e) {}
+    };
+    getById = async (id) => {
+        try {
+            const productos = await this.getAll();
+            const productoEncontrado = productos.find(
+                (producto) => producto.id == id
+            );
+
+            if (!productoEncontrado)
+                return console.log("El id del pruducto no existe");
+
+            return productoEncontrado;
+        } catch (e) {
+            console.log(e);
+        }
+    };
+
+    async deleteById(id) {
+        try {
+            const productos = await this.getAll();
+            const productoEncontrado = productos.find((e) => e.id == id);
+            if (!productoEncontrado) return console.log("el id no existe");
+            const productosFiltrados = productos.filter((e) => e.id != id);
+            await fs.promises.writeFile(
+                this.filePath,
+                JSON.stringify(productosFiltrados, null)
+            );
+            console.log("producto borrado");
+        } catch (e) {
+            console.log(e);
+        }
+    }
+    deleteAll = async () => {
+        try {
+            await fs.promises.writeFile(
+                this.filePath,
+                JSON.stringify([], null)
+            );
+            console.log("se borraron todos los productos");
+        } catch (e) {
+            console.log(e);
+        }
+    };
+
+    updateById = async (id, title, price, description, stock, thumbnail) => {
+        try {
+            const productos = await this.getAll();
+            const item = productos.find((prod) => prod.id === Number(id));
+            if (item) {
+                item.title = title;
+                item.price = price;
+                item.description = description;
+                item.stock = stock;
+                item.thumbnail = thumbnail;
+                item.timestamp = new Date().toLocaleString();
+                console.log(item);
+                await fs.promises.writeFile(
+                    this.filePath,
+                    JSON.stringify(productos, null, 2)
+                );
+                return item;
+            }
+        } catch (error) {
+            throw new Error(error);
+        }
+    };
+
+    async updateCartById(id, timestamp, products) {
+        try {
+            const productos = await this.getAll();
+            const isInProductList = productos.find(
+                (prod) => Number(prod.id) === Number(id)
+            );
+            const indexItem = productos.findIndex(
+                (prod) => Number(prod.id) === Number(id)
+            );
+            if (isInProductList != undefined) {
+                const objeto = {
+                    id: id,
+                    timestamp: timestamp,
+                    products: products,
+                };
+                productos[indexItem] = objeto;
+                fs.promises.writeFile(
+                    this.filePath,
+                    JSON.stringify(productos, null)
+                );
+                return true;
+            } else {
+                return false;
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+}
+
+module.exports = Contenedor;
