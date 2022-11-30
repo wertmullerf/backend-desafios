@@ -4,8 +4,6 @@ const Cart = require("../models/cartModel");
 const Contenedor = require("../container/contenedor");
 const cartController = new Contenedor("cart");
 const productController = new Contenedor("products");
-
-const Product = require("../models/productModel");
 cartRouter.get("/", async (req, res) => {
     const cartList = await cartController.getAll();
     if (cartList) {
