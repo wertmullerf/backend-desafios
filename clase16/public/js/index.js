@@ -34,7 +34,7 @@ socket.on("product-list", (data) => {
                  ${product.price}$
                 </p>
             </div>
-        </div>;
+        </div>
         `;
     });
     document.getElementById("product-list").innerHTML = html;

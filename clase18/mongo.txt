@@ -1,0 +1,142 @@
+brew services start mongodb/brew/mongodb-community@4.4 
+mongo
+show dis
+use ecommerce
+db.products.insertMany([
+    {
+        "title": "Remera basica negra",
+        "price": 120,
+        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout",
+        "stock": 501,
+        "thumbnail": "#"
+    },
+    {
+        "title": "Remera basica blanca",
+        "price": 580,
+        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout",
+        "stock": 205,
+        "thumbnail": "#"
+    },
+    {
+        "title": "Remera basica azul",
+        "price": 900,
+        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout",
+        "stock": 700,
+        "thumbnail": "#"
+    },
+    {
+        "title": "Remera basica rosa",
+        "price": 1280,
+        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout",
+        "stock": 70,
+        "thumbnail": "#"
+    },
+    {
+        "title": "Remera estampada nirvana",
+        "price": 1700,
+        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout",
+        "stock": 50,
+        "thumbnail": "#"
+    },
+    {
+        "title": "Remera vans blanca",
+        "price": 2300,
+        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout",
+        "stock": 500,
+        "thumbnail": "#"
+    },
+    {
+        "title": "Remera vans negra",
+        "price": 2860,
+        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout",
+        "stock": 155,
+        "thumbnail": "#"
+    },
+    {
+        "title": "Remera zara basica",
+        "price": 3350,
+        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout",
+        "stock": 332,
+        "thumbnail": "#"
+    },
+    {
+        "title": "Remera zara estampada",
+        "price": 4320,
+        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout",
+        "stock": 13,
+        "thumbnail": "#"
+    },
+    {
+        "title": "Remera freres negra",
+        "price": 4990,
+        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout",
+        "stock": 55,
+        "thumbnail": "#"
+    }
+])
+
+
+db.messages.insertMany([
+    {   
+        "email": "daweda@gmail.com",
+        "msg": "hello1",
+        "date": new Date()
+    },
+    {   
+        "email": "daweadwadaw2313da@gmail.com",
+        "msg": "hello2",
+        "date": new Date()
+    },
+    {   
+        "email": "dawe1111da@gmail.com",
+        "msg": "hello3",
+        "date": new Date()
+    },
+    {   
+        "email": "daw111eda@gmail.com",
+        "msg": "hello4",
+        "date": new Date()
+    },
+    {   
+        "email": "aa___daweda@gmail.com",
+        "msg": "hello5",
+        "date": new Date()
+    },
+    {   
+        "email": "daweda@gmail.com",
+        "msg": "hello6",
+        "date": new Date()
+    },
+    {   
+        "email": "daweda@gmail.com",
+        "msg": "hello7",
+        "date": new Date()
+    },
+    {   
+        "email": "daweda@gmail.com",
+        "msg": "hello8",
+        "date": new Date()
+    },
+    {   
+        "email": "daweda@gmail.com",
+        "msg": "hello9",
+        "date": new Date()
+    },
+    {   
+        "email": "daweda@gmail.com",
+        "msg": "hello10",
+        "date": new Date()
+    },
+])
+
+db.products.find().pretty()	
+db.messages.find().pretty()	
+db.products.estimatedDocumentCount()
+db.messages.estimatedDocumentCount()
+db.products.find({price : {$lt: 1000}}).pretty()
+db.products.find({price:{$gt:1000, $lt: 3000}}).pretty()
+db.products.find({price:{$gt:1000, $lt: 3000}})
+db.products.find({price: {$gt:3000}}).pretty()
+db.products.find().sort({price:1}).skip(2).limit(1
+db.products.updateMany( { }, {$set:{stock: 100}} ))
+db.createUser({ user: "pepe", pwd: "asd456", roles: [ { role: "read", db: "ecommerce" } ] } )
