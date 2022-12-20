@@ -1,94 +1,126 @@
-const fs = require("fs");
-class Contenedor {
-    constructor() {
-        this.filePath = "./src/products.json";
+import fs from "fs";
+
+class ContainerFs {
+    constructor(fileName) {
+        this.filePath = `./src/db/${fileName}.json`;
     }
-    getAll = async () => {
+
+    async getAll() {
         try {
-            const archivo = await fs.promises.readFile(this.filePath, "utf-8");
-            const productos = JSON.parse(archivo);
-            return productos;
-        } catch (e) {
-            console.log(e);
+            const file = await fs.promises.readFile(this.filePath, "utf8");
+            const elements = JSON.parse(file);
+
+            return elements;
+        } catch (error) {
+            if (error.code === "ENOENT") {
+                await fs.promises.writeFile(
+                    this.filePath,
+                    JSON.stringify([], null, 3)
+                );
+                return [];
+            }
+            console.log(error);
         }
-    };
-    save = async (producto) => {
+    }
+
+    async save(element) {
         try {
-            const productos = await this.getAll();
+            const elements = await this.getAll();
+
             const id =
-                productos.length === 0
+                elements.length === 0
                     ? 1
-                    : productos[productos.length - 1].id + 1;
-            producto.id = id;
-            productos.push(producto);
+                    : elements[elements.length - 1].id + 1;
+
+            element.id = id;
+
+            elements.push(element);
+
             await fs.promises.writeFile(
                 this.filePath,
-                JSON.stringify(productos, null)
-            );
-        } catch (e) {}
-    };
-    getById = async (id) => {
-        try {
-            const productos = await this.getAll();
-            const productoEncontrado = productos.find(
-                (producto) => producto.id == id
+                JSON.stringify(elements, null, 3)
             );
 
-            if (!productoEncontrado)
-                return console.log("El id del pruducto no existe");
-
-            return productoEncontrado;
-        } catch (e) {
-            console.log(e);
+            return element;
+        } catch (error) {
+            console.log(error);
         }
-    };
+    }
+
+    async getById(id) {
+        try {
+            const elements = await this.getAll();
+
+            const foundElement = elements.find((element) => element.id == id);
+
+            if (!foundElement) return null;
+
+            return foundElement;
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     async deleteById(id) {
         try {
-            const productos = await this.getAll();
-            const productoEncontrado = productos.find((e) => e.id == id);
-            if (!productoEncontrado) return console.log("el id no existe");
-            const productosFiltrados = productos.filter((e) => e.id != id);
+            const elements = await this.getAll();
+
+            const foundElement = elements.find((element) => element.id == id);
+
+            if (!foundElement) return "Element not found";
+
+            const filterElements = elements.filter(
+                (element) => element.id != id
+            );
+
             await fs.promises.writeFile(
                 this.filePath,
-                JSON.stringify(productosFiltrados, null)
+                JSON.stringify(filterElements, null, 3)
             );
-            console.log("producto borrado");
-        } catch (e) {
-            console.log(e);
+        } catch (error) {
+            console.log(error);
         }
     }
-    deleteAll = async () => {
+
+    async deleteAll() {
         try {
             await fs.promises.writeFile(
                 this.filePath,
-                JSON.stringify([], null)
+                JSON.stringify([], null, 3)
             );
-            console.log("se borraron todos los productos");
-        } catch (e) {
-            console.log(e);
-        }
-    };
-
-    updateById = async (id, title, price, thumbnail) => {
-        try {
-            const productos = await this.getAll();
-            const item = productos.find((prod) => prod.id === Number(id));
-            if (item) {
-                item.title = title;
-                item.price = price;
-                item.thumbnail = thumbnail;
-                console.log(item);
-                await fs.promises.writeFile(
-                    this.filePath,
-                    JSON.stringify(productos, null, 2)
-                );
-                return item;
-            }
         } catch (error) {
-            throw new Error(error);
+            console.log(error);
         }
-    };
+    }
+
+    async updateById(id, newData) {
+        try {
+            const elements = await this.getAll();
+
+            const foundElementIndex = elements.findIndex(
+                (element) => element.id == id
+            );
+
+            if (foundElementIndex === -1) return null;
+
+            const foundElement = elements[foundElementIndex];
+
+            for (const key in newData) {
+                if (foundElement.hasOwnProperty(key)) {
+                    foundElement[key] = newData[key];
+                }
+            }
+
+            await fs.promises.writeFile(
+                this.filePath,
+                JSON.stringify(elements, null, 3)
+            );
+
+            return foundElement;
+        } catch (error) {
+            console.log(error);
+        }
+    }
 }
 
-module.exports = Contenedor;
+export { ContainerFs };
