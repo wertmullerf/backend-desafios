@@ -1,10 +1,9 @@
 import { Router } from "express";
 const productsRouter = Router();
 import verifyRole from "../middleware/admin.js";
-import instancia from "../daos/index.js";
-const productController = new instancia.product();
+import { ProductDao } from "../daos/index.js";
 productsRouter.get("/", async (req, res) => {
-    const productList = await productController.getAll();
+    const productList = await ProductDao.getAll();
     if (productList) {
         res.json(productList);
     } else {
@@ -14,11 +13,12 @@ productsRouter.get("/", async (req, res) => {
         });
     }
 });
+
 productsRouter.get("/:id", verifyRole, async (req, res) => {
     const { id } = req.params;
-    const productList = await productController.getAll();
-    const product = await productController.getById(id);
-    if (id > productList.length) {
+    const productList = await ProductDao.getAll();
+    const product = await ProductDao.getById(id);
+    if (id > productList.length || !product) {
         res.json({
             error: "This product was not found",
             aviableProducts: productList,
@@ -30,7 +30,7 @@ productsRouter.get("/:id", verifyRole, async (req, res) => {
 
 productsRouter.delete("/:id", verifyRole, async (req, res) => {
     const { id } = req.params;
-    const products = await productController.getAll();
+    const products = await ProductDao.getAll();
 
     if (id > products.length) {
         res.json({
@@ -38,7 +38,7 @@ productsRouter.delete("/:id", verifyRole, async (req, res) => {
             productList: products,
         });
     } else {
-        await productController.deleteById(id);
+        await ProductDao.deleteById(id);
         res.json({
             success: true,
             msg: "This product was deleted successfully.",
@@ -54,8 +54,9 @@ productsRouter.post("/", verifyRole, async (req, res) => {
     //     body.stock,
     //     body.thumbnail
     // ); //inicializo la clase Product para asi poder enviarle todos los datos mas la fecha, el metodo save se encargara de hacer el push al json.
-    await productController.save(body);
-    const products = await productController.getAll();
+    // await ProductDao.save({ ...body, timestamp: Date.now().toLocaleString() });
+    await ProductDao.save(body);
+    const products = await ProductDao.getAll();
     res.json({
         msg: "The product was uploaded successfully",
         productList: products,
@@ -65,7 +66,7 @@ productsRouter.put("/:id", verifyRole, async (req, res) => {
     try {
         const { id } = req.params;
         const { title, price, description, stock, thumbnail } = req.body;
-        await productController.updateById(
+        await ProductDao.updateById(
             id,
             title,
             price,
